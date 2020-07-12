@@ -13,13 +13,18 @@ routes.post('/register', (req, res) => {
         date_of_birth,
         address,
         gender,
-        phone
+        phone,
+        password,
+        cpassword
     } = req.body
     let errors = []
-    if(!username || !name || !email || !date_of_birth || !address || !gender || !phone){
-        errors.push({ msg: 'Please fill all fieds' })
+    if (!username || !name || !email || !date_of_birth || !address || !gender || !phone) {
+        errors.push({
+            msg: 'Please fill all fields'
+        })
     }
-    
+
+
 })
 
 module.exports = routes
