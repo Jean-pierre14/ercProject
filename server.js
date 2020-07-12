@@ -17,6 +17,11 @@ const PORT = 7000
 app.use(expressLayouts)
 app.set('view engine', 'ejs')
 
+// BodyParse
+app.use(express.urlencoded({
+    extended: false
+}))
+
 // Static file
 app.use('/assets', express.static('public'))
 app.use('/', require('./routes/index'))
