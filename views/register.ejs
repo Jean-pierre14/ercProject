@@ -13,30 +13,35 @@
                 </div>
                 <% }) %>
                 <% } %>
-                <form action="/register" method="POST">
+                <form action="/users/register" method="POST">
                     <div class="form-row">
                         <div class="form-group col-sm-12 col-lg-4 col-md-6">
                             <label for="username">Username</label>
-                            <input type="text" name="username" id="username" placeholder="Username"
+                            <input type="text" name="username" id="username"
+                                value="<%= typeof username != 'undefined' ? username: ''%>" placeholder="Username"
                                 class="form-control">
                         </div>
                         <div class="form-group col-sm-12 col-lg-4 col-md-6">
                             <label for="name">Name</label>
-                            <input type="text" name="name" id="name" placeholder="Enter your name" class="form-control">
+                            <input type="text" name="name" id="name" placeholder="Enter your name"
+                                value="<%= typeof name != 'undefined' ? name: ''%>" class="form-control">
                         </div>
                         <div class="form-group col-sm-12 col-lg-4 col-md-6">
                             <label for="Email">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Email@erc.goma.cd"
+                            <input type="email" name="email" id="email"
+                                value="<%= typeof email != 'undefined' ? email: ''%>" placeholder="Email@erc.goma.cd"
                                 class="form-control">
                         </div>
                         <div class="form-group col-sm-12 col-lg-6 col-md-6">
                             <label for="address">address</label>
-                            <input type="text" name="address" id="address" placeholder="Enter your Address"
-                                class="form-control">
+                            <input type="text" name="address" id="address"
+                                value="<%= typeof address != 'undefined' ? address: ''%>"
+                                placeholder="Enter your Address" class="form-control">
                         </div>
                         <div class="form-group col-sm-12 col-lg-6 col-md-6">
                             <label for="telephone">Phone number</label>
-                            <input type="tel" name="telephone" id="telephone" placeholder="Telephone number"
+                            <input type="tel" name="phone" id="telephone"
+                                value="<%= typeof phone != 'undefined' ? phone: ''%>" placeholder="Telephone number"
                                 class="form-control">
                         </div>
                         <div class="form-group col-sm-12 col-lg-6 col-md-6">
@@ -49,17 +54,21 @@
                         </div>
                         <div class="form-group col-sm-12 col-lg-6 col-md-6">
                             <label for="dob">Date of birth</label>
-                            <input type="date" name="date_of_birth" id="dob" class="form-control">
+                            <input type="date" name="date_of_birth"
+                                value="<%= typeof date_of_birth != 'undefined' ? date_of_birth: ''%>" id="dob"
+                                class="form-control">
                         </div>
                         <div class="form-group col-sm-12 col-lg-5 col-md-6">
                             <label for="pass">Password</label>
-                            <input type="password" name="password" id="pass" placeholder="Password"
+                            <input type="password" name="password" id="pass"
+                                value="<%= typeof password != 'undefined' ? password: ''%>" placeholder="Password"
                                 class="form-control">
                         </div>
                         <div class="form-group col-sm-12 col-lg-7 col-md-6">
                             <label for="cpass">Confirm Password</label>
-                            <input type="password" name="cpassword" id="cpass" placeholder="Confirm Password"
-                                class="form-control">
+                            <input type="password" name="cpassword" id="cpass"
+                                value="<%= typeof cpassword != 'undefined' ? cpassword: ''%>"
+                                placeholder="Confirm Password" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">

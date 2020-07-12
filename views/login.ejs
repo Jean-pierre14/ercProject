@@ -3,6 +3,24 @@
         <h3 class="text-success text-center">Sign In</h3>
         <div class="card shadow">
             <div class="card-body">
+                <% if(typeof errors != 'undefined') { %>
+                <% errors.forEach( function(error){ %>
+                <div class="alert alert-warning alert-dismissible fade show">
+                    <%= error.msg %>
+                    <button type="button" data-dismiss="alert" aria-label="Close" class="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <% }) %>
+                <% } %>
+                <% if(success_msg != '') { %>
+                <div class="alert alert-success alert-dismissible fade show">
+                    <%= success_msg %>
+                    <button type="button" data-dismiss="alert" aria-label="Close" class="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <% } %>
                 <form action="/login" method="POST">
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -15,7 +33,7 @@
                             class="form-control">
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-md btn-success">
+                        <button type="submit" class="btn btn-md btn-success btn-block">
                             Sign In
                             <i class="fa fa-arrow-circle-right"></i>
                         </button>

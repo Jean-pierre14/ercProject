@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 
-
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -27,7 +26,7 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
     date_of_birth: {
-        type: date,
+        type: Date,
         required: true
     },
     password: {
@@ -36,11 +35,7 @@ const UserSchema = new mongoose.Schema({
     },
     cpassword: {
         type: String,
-        required: true
-    },
-    date: {
-        type: date,
-        default: Date.now()
+        required: false
     }
 })
 
