@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    telephone: {
+    phone: {
         type: String,
         required: true
     },
@@ -29,6 +29,14 @@ const UserSchema = new mongoose.Schema({
     date_of_birth: {
         type: date,
         required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: date,
+        default: Date.now()
     }
 })
 
