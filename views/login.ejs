@@ -21,7 +21,15 @@
                     </button>
                 </div>
                 <% } %>
-                <form action="/login" method="POST">
+                <% if(error != '') { %>
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <%= error %>
+                    <button type="button" data-dismiss="alert" aria-label="Close" class="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <% } %>
+                <form action="/users/login" method="POST">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" placeholder="Entre your E-mail"

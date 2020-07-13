@@ -1,9 +1,11 @@
 const express = require('express')
-const bcrypt = require('bcrypt')
 const routes = express.Router()
+const bcrypt = require('bcrypt')
+const passport = require('passport')
 
 // User model
-const User = require('../models/User')
+const User = require('../models/User');
+require('../config/passport');
 
 routes.get('/login', (req, res) => res.render('login'))
 routes.get('/register', (req, res) => res.render('register'))
@@ -100,7 +102,15 @@ routes.post('/register', (req, res) => {
                 }
             })
     }
+})
 
+// Login Handle
+routes.post('/login', (req, res, next) => {
+    passport.authenticate('local', {
+        successRedirect: '/dashboard',
+        failureRedirect: '/users/login',
+        failureFlash: true
+    })(req, res, next)
 })
 
 module.exports = routes
