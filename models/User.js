@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+    // Members Registration
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -36,6 +36,14 @@ const UserSchema = new mongoose.Schema({
     cpassword: {
         type: String,
         required: false
+    },
+    user_level: {
+        type: String,
+        default: 0
+    },
+    created_at: {
+        type: Date,
+        default: Date.now
     }
 })
 

@@ -77,21 +77,21 @@ routes.post('/register', (req, res) => {
                     })
                 } else {
                     const newUser = new User({
-                        username,
-                        name,
-                        email,
-                        address,
-                        gender,
-                        phone,
-                        date_of_birth,
-                        password
-                    })
-                    // Hash Password
+                            username,
+                            name,
+                            email,
+                            address,
+                            gender,
+                            phone,
+                            date_of_birth,
+                            password
+                        })
+                        // Hash Password
                     bcrypt.genSalt(10, (err, salt) => bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if (err) throw err
-                        // Set The password
+                            // Set The password
                         newUser.password = hash
-                        // Register the user
+                            // Register the user
                         newUser.save()
                             .then(user => {
                                 req.flash('success_msg', 'You are now registered and can log in')
@@ -111,6 +111,13 @@ routes.post('/login', (req, res, next) => {
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next)
+})
+
+// Logout Handle
+routes.get('/logout', (req, res) => {
+    req.logout()
+    req.flash('success_msg', 'You are log out')
+    res.redirect('/users/login')
 })
 
 module.exports = routes
