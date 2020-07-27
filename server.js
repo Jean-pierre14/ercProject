@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const session = require('express-session')
 const passport = require('passport')
+const { success, error } = require('consola')
 
 const app = express()
 
@@ -12,12 +13,14 @@ require('./config/passport')(passport)
 
 const db = require('./config/key').MongoURI
 mongoose.connect(db, {
-        useNewUrlParser: true
+        useNewUrlParser: true,
+        useFindAndModify: true,
+        useUnifiedTopology: true
     })
-    .then(() => console.log('MongoDB connected'))
-    .catch((err) => console.log(err))
-
+    .then(() => success({ message: `Mongodb connected ${db}`, badge: true }))
+    .catch((err) => error({ message: `${err}`, badge: true }))
 const PORT = 7000
+
 
 // EJS
 app.use(expressLayouts)
@@ -58,5 +61,5 @@ app.use('/users', require('./routes/users'))
 
 app.listen(PORT, (err) => {
     if (err) throw err
-    console.log(`Server stard on port: ${PORT}`)
+    success({ message: `Server stard on port: ${PORT}`, badge: true })
 })

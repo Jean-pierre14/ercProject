@@ -3,80 +3,56 @@
         <h3 class="text-center text-success">Sign Up</h3>
         <div class="card shadow">
             <div class="card-body">
-                <% if(typeof errors != 'undefined') { %>
-                <% errors.forEach( function(error){ %>
-                <div class="alert alert-warning alert-dismissible fade show">
-                    <%= error.msg %>
-                    <button type="button" data-dismiss="alert" aria-label="Close" class="close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <% }) %>
-                <% } %>
-                <form action="/users/register" method="POST">
-                    <div class="form-row">
-                        <div class="form-group col-sm-12 col-lg-4 col-md-6">
-                            <label for="username">Username</label>
-                            <input type="text" name="username" id="username"
-                                value="<%= typeof username != 'undefined' ? username: ''%>" placeholder="Username"
-                                class="form-control">
-                        </div>
-                        <div class="form-group col-sm-12 col-lg-4 col-md-6">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" placeholder="Enter your name"
-                                value="<%= typeof name != 'undefined' ? name: ''%>" class="form-control">
-                        </div>
-                        <div class="form-group col-sm-12 col-lg-4 col-md-6">
-                            <label for="Email">Email</label>
-                            <input type="email" name="email" id="email"
-                                value="<%= typeof email != 'undefined' ? email: ''%>" placeholder="Email@erc.goma.cd"
-                                class="form-control">
-                        </div>
-                        <div class="form-group col-sm-12 col-lg-6 col-md-6">
-                            <label for="address">address</label>
-                            <input type="text" name="address" id="address"
-                                value="<%= typeof address != 'undefined' ? address: ''%>"
-                                placeholder="Enter your Address" class="form-control">
-                        </div>
-                        <div class="form-group col-sm-12 col-lg-6 col-md-6">
-                            <label for="telephone">Phone number</label>
-                            <input type="tel" name="phone" id="telephone"
-                                value="<%= typeof phone != 'undefined' ? phone: ''%>" placeholder="Telephone number"
-                                class="form-control">
-                        </div>
-                        <div class="form-group col-sm-12 col-lg-6 col-md-6">
-                            <label for="gender">Gender</label>
-                            <select name="gender" id="gender" class="custom-select">
+                <%- include('./partials/messages') %>
+                    <form action="/users/register" method="POST">
+                        <div class="form-row">
+                            <div class="form-group col-sm-12 col-lg-4 col-md-6">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" value="<%= typeof username != 'undefined' ? username: ''%>" placeholder="Username" class="form-control">
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-4 col-md-6">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" placeholder="Enter your name" value="<%= typeof name != 'undefined' ? name: ''%>" class="form-control">
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-4 col-md-6">
+                                <label for="Email">Email</label>
+                                <input type="email" name="email" id="email" value="<%= typeof email != 'undefined' ? email: ''%>" placeholder="Email@erc.goma.cd" class="form-control">
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-6 col-md-6">
+                                <label for="address">address</label>
+                                <input type="text" name="address" id="address" value="<%= typeof address != 'undefined' ? address: ''%>" placeholder="Enter your Address" class="form-control">
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-6 col-md-6">
+                                <label for="telephone">Phone number</label>
+                                <input type="tel" name="phone" id="telephone" value="<%= typeof phone != 'undefined' ? phone: ''%>" placeholder="Telephone number" class="form-control">
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-6 col-md-6">
+                                <label for="gender">Gender</label>
+                                <select name="gender" id="gender" class="custom-select">
                                 <option value="">-- Select --</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-6 col-md-6">
+                                <label for="dob">Date of birth</label>
+                                <input type="date" name="date_of_birth" value="<%= typeof date_of_birth != 'undefined' ? date_of_birth: ''%>" id="dob" class="form-control">
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-5 col-md-6">
+                                <label for="pass">Password</label>
+                                <input type="password" name="password" id="pass" value="<%= typeof password != 'undefined' ? password: ''%>" placeholder="Password" class="form-control">
+                            </div>
+                            <div class="form-group col-sm-12 col-lg-7 col-md-6">
+                                <label for="cpass">Confirm Password</label>
+                                <input type="password" name="cpassword" id="cpass" value="<%= typeof cpassword != 'undefined' ? cpassword: ''%>" placeholder="Confirm Password" class="form-control">
+                            </div>
                         </div>
-                        <div class="form-group col-sm-12 col-lg-6 col-md-6">
-                            <label for="dob">Date of birth</label>
-                            <input type="date" name="date_of_birth"
-                                value="<%= typeof date_of_birth != 'undefined' ? date_of_birth: ''%>" id="dob"
-                                class="form-control">
-                        </div>
-                        <div class="form-group col-sm-12 col-lg-5 col-md-6">
-                            <label for="pass">Password</label>
-                            <input type="password" name="password" id="pass"
-                                value="<%= typeof password != 'undefined' ? password: ''%>" placeholder="Password"
-                                class="form-control">
-                        </div>
-                        <div class="form-group col-sm-12 col-lg-7 col-md-6">
-                            <label for="cpass">Confirm Password</label>
-                            <input type="password" name="cpassword" id="cpass"
-                                value="<%= typeof cpassword != 'undefined' ? cpassword: ''%>"
-                                placeholder="Confirm Password" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-md">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-md">
                             Register <i class="fa fa-arrow-circle-right"></i>
                         </button>
-                    </div>
-                </form>
+                        </div>
+                    </form>
             </div>
         </div>
         <div class="card mt-2">

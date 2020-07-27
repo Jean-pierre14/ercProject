@@ -233,45 +233,35 @@
     </div>
     <div class="col-md-3 p-2 bg-light col-lg-3 col-sm-12">
         <h3 class="display-5 text-warning">Contact Us</h3>
-        <% if(typeof errors != 'undefined') { %>
-            <% errors.forEach( function(error){ %>
-                <div class="alert alert-warning alert-dismissible fade show">
-                    <%= error.msg %>
-                        <button type="button" data-dismiss="alert" aria-label="Close" class="close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+        <%- include('./partials/messages')%>
+            <form action="/request" method="post">
+                <label for="email">Email</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-send"></i></span>
+                    </div>
+                    <input type="email" id="email" name="email" value="<%= typeof email != 'undefined' ? email: '' %>" class="form-control" placeholder="Email@example.com">
                 </div>
-                <% }) %>
+                <label for="message">Message</label>
+                <textarea name="message" id="message" value="<%= typeof message != 'undefined' ? message: '' %>" class="form-control" placeholder="Enter your request..."></textarea>
+                <div class="form-group mt-2">
+                    <button type="submit" class="btn btn-sm btn-success">Send <i class="fa fa-send"></i></button>
+                </div>
+            </form>
+    </div>
+</div>
+
+<div class="row p-5 justify-content-center">
+    <div class="col-md-6 col-sm-12">
+        <%- include('./include') %>
+            <h3 class="display-">List of Members</h3>
+            <div class="list-group">
+                <% for(cbs of cb){ %>
+                    <a href="/users/api/<%= cbs._id %>" class="list-group-item list-group-action">
+                        <%= cbs.username %>
+                            <small><%= cbs.name %></small>
+                    </a>
                     <% } %>
-                        <% if(success_msg != '') { %>
-                            <div class="alert alert-success alert-dismissible fade show">
-                                <%= success_msg %>
-                                    <button type="button" data-dismiss="alert" aria-label="Close" class="close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                            </div>
-                            <% } %>
-                                <% if(error != '') { %>
-                                    <div class="alert alert-danger alert-dismissible fade show">
-                                        <%= error %>
-                                            <button type="button" data-dismiss="alert" aria-label="Close" class="close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                                    </div>
-                                    <% } %>
-                                        <form action="/request" method="post">
-                                            <label for="email">Email</label>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i class="fa fa-send"></i></span>
-                                                </div>
-                                                <input type="email" id="email" name="email" value="<%= typeof email != 'undefined' ? email: '' %>" class="form-control" placeholder="Email@example.com">
-                                            </div>
-                                            <label for="message">Message</label>
-                                            <textarea name="message" id="message" value="<%= typeof message != 'undefined' ? message: '' %>" class="form-control" placeholder="Enter your request..."></textarea>
-                                            <div class="form-group mt-2">
-                                                <button type="submit" class="btn btn-sm btn-success">Send <i class="fa fa-send"></i></button>
-                                            </div>
-                                        </form>
+            </div>
     </div>
 </div>

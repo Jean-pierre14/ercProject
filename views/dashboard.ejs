@@ -2,11 +2,49 @@
     <div class="col-md-3 col-lg-3 col-sm-12 p-2">
         <div class="card">
             <div class="card-body">
-                <p>Welcome,</p>
-                <h3 class="text-center display-4">
+                <h3 class="text-center display-5">
+                    Welcome,
                     <%= name %>
                 </h3>
-                <a href="/users/logout" class="btn btn-sm btn-warning text-light">Logout</a>
+                <a href="/users/logout" class="btn btn-sm btn-warning text-light d-flex justify-content-between align-items-center">
+                    Logout
+                    <i class="fa fa-logout"></i>
+                </a>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <img src="" alt="">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <div class="text-warning">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <a href="#" class="btn btn-primary text-light btn-sm pull-right">like <i class="fa fa-thumb-up"></i></a>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-header p-1">
+                <h3>Member</h3>
+            </div>
+            <div class="card-body">
+                <form action="" method="post" class="form-inline">
+                    <input type="search" name="search" id="search" placeholder="Typing..." class="form-control">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </form>
+                <ul class="list-group">
+                    <% docs.forEach( function(list)) { %>
+                        <li>
+                            <a href="#">
+                                <%= list %>
+                            </a>
+                        </li>
+                        <% } %>
+                </ul>
             </div>
         </div>
     </div>

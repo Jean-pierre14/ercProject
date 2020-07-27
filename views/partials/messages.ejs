@@ -1,5 +1,26 @@
-<% if(typeof errors != 'undefined') {%>
-<% errors.forEach( function(e){ %>
-<%= e.msg %>
-<%})%>
-<% }%>
+<% if(typeof errors != 'undefined') { %>
+    <% errors.forEach( function(error){ %>
+        <div class="alert alert-warning alert-dismissible fade show">
+            <%= error.msg %>
+                <button type="button" data-dismiss="alert" aria-label="Close" class="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+        </div>
+        <% }) %>
+            <% } %>
+                <% if(success_msg != '') { %>
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <%= success_msg %>
+                            <button type="button" data-dismiss="alert" aria-label="Close" class="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+                    </div>
+                    <% } %>
+                        <% if(error != '') { %>
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <%= error %>
+                                    <button type="button" data-dismiss="alert" aria-label="Close" class="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+                            </div>
+                            <% } %>

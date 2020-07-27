@@ -1,13 +1,18 @@
 const express = require('express')
 const routes = express.Router()
 const { ensureAuthenticated } = require('../config/auth')
-const User = require('../models/User')
 const mongoose = require('mongoose')
+const User = require('../models/User')
 
 const NewReq = require('../models/Request')
 
-routes.get('/', (req, res) => res.render('welcome'))
-routes.get('/dashboard', (req, res) => res.render('dashboard', { name: req.body.name }))
+routes.get('/', (req, res) => {
+    User.find({}, (err, cb) => {
+        if (err) throw err
+        res.render('welcome', { cb })
+    })
+})
+routes.get('/dashboard', (req, res) => res.render('dashboard', { name: req.user.name }))
     // Handle post request
 routes.post('/request', (req, res) => {
     const {
