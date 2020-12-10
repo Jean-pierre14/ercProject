@@ -18,7 +18,8 @@ mongoose.connect(db, {
         useUnifiedTopology: true
     })
     .then(() => success({ message: `Mongodb connected ${db}`, badge: true }))
-    .catch((err) => error({ message: `${err}`, badge: true }))
+    // .catch((err) => error({ message: `${err}`, badge: true }))
+    .catch(err=>console.error(err))
 const PORT = 7001
 
 
@@ -60,7 +61,6 @@ app.use('/assets', express.static('public'))
 app.use('/', require('./routes/index'))
 app.use('/users', require('./routes/users'))
 
-app.use('/get', require('./models/Request'))
 
 app.listen(PORT, (err) => {
     if (err) throw err
