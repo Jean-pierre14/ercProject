@@ -1,54 +1,27 @@
-<div class="row">
-    <div class="col-md-3 col-lg-3 col-sm-12 p-2">
-        <div class="card">
-            <div class="card-body">
-                <h3 class="text-center display-5">
-                    Welcome,
-                    <%= name %>
-                </h3>
-                <a href="/users/logout" class="btn btn-sm btn-warning text-light d-flex justify-content-between align-items-center">
-                    Logout
-                    <i class="fa fa-logout"></i>
-                </a>
-            </div>
-        </div>
-        <div class="card mt-3">
-            <img src="" alt="">
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <div class="text-warning">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-                <a href="#" class="btn btn-primary text-light btn-sm pull-right">like <i class="fa fa-thumb-up"></i></a>
-            </div>
-        </div>
-        <div class="card mt-3">
-            <div class="card-header p-1">
-                <h3>Member</h3>
-            </div>
-            <div class="card-body">
-                <form action="" method="post" class="form-inline">
-                    <input type="search" name="search" id="search" placeholder="Typing..." class="form-control">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                </form>
-                <ul class="list-group">
-
-                </ul>
-            </div>
-        </div>
+<nav class="navbar navbar-expand-md bg-dark mx-5 navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">ERC</a>
+  
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Members</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Blog</a>
+        </li>
+      </ul>
     </div>
-    <div class="col-md-4">
-        <iframe src="http://www.youtube.com/embed/?listType=user_uploads&list=Traversy Media" width="480" height="400"></iframe>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="content">
-        <h3>Welcome</h3>
-        <span><%= name %></span>
-    </div>
+  </nav>
+<div class="content-header">
+    <h3>Welcome</h3>
+    <span><%= name %></span>
 </div>

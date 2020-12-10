@@ -17,5 +17,11 @@
     background-repeat: no-repeat;
 }
 
+.content-header{
+    position: relative;
+    background-color: #ccc;
+    width: 100%;
+}
+
 
 /*# sourceMappingURL=style.css.map */
