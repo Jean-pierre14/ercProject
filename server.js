@@ -19,7 +19,7 @@ mongoose.connect(db, {
     })
     .then(() => success({ message: `Mongodb connected ${db}`, badge: true }))
     .catch((err) => error({ message: `${err}`, badge: true }))
-const PORT = 7000
+const PORT = 7001
 
 
 // EJS
@@ -55,9 +55,12 @@ app.use((req, res, next) => {
 
 // Static file
 app.use('/assets', express.static('public'))
+
+// Routes
 app.use('/', require('./routes/index'))
 app.use('/users', require('./routes/users'))
 
+app.use('/get', require('./models/Request'))
 
 app.listen(PORT, (err) => {
     if (err) throw err

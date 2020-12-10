@@ -1,11 +1,21 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .transparent {
-  position: relative;
-  background: none;
+    position: relative;
+    background: none;
 }
+
+.img-pary {
+    position: relative;
+    background-image: url('/assets/images/erc/pray.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 
 /*# sourceMappingURL=style.css.map */
