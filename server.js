@@ -12,6 +12,9 @@ const app = express()
 require('./config/passport')(passport)
 
 const db = require('./config/key').MongoURI
+// const db2 = mongoose.connect('localhost://27017',{useNewUrlParser: true,
+//         useFindAndModify: true,
+//         useUnifiedTopology: true}).then(()=>{})
 mongoose.connect(db, {
         useNewUrlParser: true,
         useFindAndModify: true,
@@ -20,7 +23,7 @@ mongoose.connect(db, {
     .then(() => success({ message: `Mongodb connected ${db}`, badge: true }))
     // .catch((err) => error({ message: `${err}`, badge: true }))
     .catch(err=>console.error(err))
-const PORT = 7001
+const PORT = 7000
 
 
 // EJS
