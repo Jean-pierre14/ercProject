@@ -1,5 +1,5 @@
 const express = require('express')
-const expressLayouts = require('express-ejs-layouts')
+// const expressLayouts = require('express-ejs-layouts')
 const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const session = require('express-session')
@@ -16,6 +16,7 @@ const db = require('./config/key').MongoURI
 //         useFindAndModify: true,
 //         useUnifiedTopology: true}).then(()=>{})
 mongoose.connect(db, {
+
         useNewUrlParser: true,
         useFindAndModify: true,
         useUnifiedTopology: true
@@ -27,7 +28,7 @@ const PORT = 7000
 
 
 // EJS
-app.use(expressLayouts)
+// app.use(expressLayouts)
 app.set('view engine', 'ejs')
 
 // BodyParse
@@ -63,6 +64,10 @@ app.use('/assets', express.static('public'))
 // Routes
 app.use('/', require('./routes/index'))
 app.use('/users', require('./routes/users'))
+
+app.get('/new', (req, res) => {
+    res.render('dashboard2')
+})
 
 
 app.listen(PORT, (err) => {
