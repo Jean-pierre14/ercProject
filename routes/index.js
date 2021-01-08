@@ -13,6 +13,20 @@ routes.get('/', (req, res) => {
     })
 })
 
+routes.get('/user', async (req, res) => {
+    await User.find({}, (err, doc) => {
+        if (err) throw err
+        res.render('welcm', {doc})
+    })
+})
+routes.get('/user/:id', (req, res) => {
+    let id = req.params.id
+    User.findById(id, (err, doc) => {
+        if(err) throw err
+        res.render('get', {doc})
+    })
+})
+
 routes.get('/preaching', async(req, res) => {
     await res.render('video')
 })

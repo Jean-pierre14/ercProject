@@ -30,6 +30,8 @@ const PORT = 7000
 // EJS
 // app.use(expressLayouts)
 app.set('view engine', 'ejs')
+// Static files
+app.use('/assets', express.static('public'))
 
 // BodyParse
 app.use(express.urlencoded({
