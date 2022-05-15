@@ -9,8 +9,10 @@
     <h2>Arduino data</h2>
 </body>
 <script>
-    fetch('http://192.168.1.1')
-    .then(res=>console.log(res))
-    .catch(err=>console.log("Error "+err))
+    let url = 'http://localhost:7000/'
+
+    fetch(`${url}`)
+        .then(res=>console.log(res))
+        .catch(err=>console.log("Error "+err))
 </script>
 </html>
