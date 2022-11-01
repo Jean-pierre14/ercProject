@@ -60,8 +60,6 @@ app.use((req, res, next) => {
     next()
 })
 
-// Static file
-app.use('/assets', express.static('public'))
 
 // Routes
 app.use('/', require('./routes/index'))
