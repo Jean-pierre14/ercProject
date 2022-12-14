@@ -1,7 +1,9 @@
+
+<%- include('./partials/header')%>
 <div class="row justify-content-center">
-    <div class="col-md-8 col-sm-10 col-lg-8 m-2">
+    <div class="col-md-8 my-2">
         <h3 class="text-center text-success">Sign Up</h3>
-        <div class="card shadow">
+        <div class="card shadow-sm">
             <div class="card-body">
                 <%- include('./partials/messages') %>
                     <form action="/users/register" method="POST">
@@ -62,3 +64,5 @@
         </div>
     </div>
 </div>
+
+<%- include('./partials/footer')%>

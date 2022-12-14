@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<%- include('./partials/header')%>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark d-flex align-items-center justify-content-between">
     <!-- Brand -->
     <a class="navbar-brand" href="#">ERC</a>
   
@@ -7,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
   
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <div class="ml-5 collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav item-center">
         <li class="nav-item">
           <a class="nav-link active" href="#">Dashboard</a>
@@ -28,3 +29,4 @@
     <h3>Welcome</h3>
     <span><%= name %></span>
 </div>
+<%- include('./partials/footer')%>
