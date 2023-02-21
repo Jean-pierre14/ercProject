@@ -22,7 +22,7 @@
     "moment": "^2.27.0",
     "mongoose": "^5.9.23",
     "nodemon": "^2.0.20",
-    "passport": "^0.4.1",
+    "passport": "^0.6.0",
     "passport-local": "^1.0.0"
   }
 }
